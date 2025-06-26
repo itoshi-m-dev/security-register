@@ -29,9 +29,21 @@ log.append({
     'senha': password_formatada
 })
 
-with open(ARQUIVO_USUARIOS_CSV, 'a') as f:
+with open(ARQUIVO_USUARIOS_CSV, 'a',encoding='utf-8') as f:
     campos = ['nome','usuario','senha']
     escritor = csv.DictWriter(f,campos)
-    escritor.writeheader()
+    escrever_cabecalho = not ARQUIVO_FUNCIONARIOS_CSV.exists()
+    if escrever_cabecalho:
+        escritor.writeheader()
     escritor.writerows(log)
+
+with open(ARQUIVO_FUNCIONARIOS_CSV, 'a',encoding='utf-8') as f:
+    campo = ['nome']
+    escritor = csv.DictWriter(f,campo)
+    escrever_cabecalho = not ARQUIVO_FUNCIONARIOS_CSV.exists()
+    if escrever_cabecalho:
+        escritor.writeheader()
+
+    nomes = [{'nome': funcionario['nome']} for funcionario in log]
+    escritor.writerows(nomes)
     
