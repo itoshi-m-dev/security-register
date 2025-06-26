@@ -21,13 +21,17 @@ password = random.choices(string.ascii_letters + string.digits + string.punctuat
 password_formatada = ''.join(password)
 print(password_formatada)
 
+log = []
 
-
-
-
+log.append({
+    'nome': nome_funcionarios,
+    'usuario': username,
+    'senha': password_formatada
+})
 
 with open(ARQUIVO_USUARIOS_CSV, 'a') as f:
     campos = ['nome','usuario','senha']
     escritor = csv.DictWriter(f,campos)
     escritor.writeheader()
+    escritor.writerows(log)
     
