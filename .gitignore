@@ -1,0 +1,22 @@
+# Ignora cache do Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Ambientes virtuais
+.venv/
+env/
+venv/
+.env
+
+# Configurações de editor
+.vscode/
+.idea/
+
+# Arquivos temporários de sistema
+.DS_Store
+Thumbs.db
+
+# Arquivos de dados gerados
+*.csv
+*.log
