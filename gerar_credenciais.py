@@ -32,7 +32,7 @@ log.append({
 with open(ARQUIVO_USUARIOS_CSV, 'a',encoding='utf-8') as f:
     campos = ['nome','usuario','senha']
     escritor = csv.DictWriter(f,campos)
-    escrever_cabecalho = not ARQUIVO_FUNCIONARIOS_CSV.exists()
+    escrever_cabecalho = not ARQUIVO_USUARIOS_CSV.exists()
     if escrever_cabecalho:
         escritor.writeheader()
     escritor.writerows(log)
